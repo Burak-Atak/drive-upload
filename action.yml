@@ -1,0 +1,32 @@
+name: 'Google Drive File Upload Action'
+description: 'Creates or updates files on Google Drive using service account credentials. It can be used with https://github.com/google-github-actions/auth'
+author: 'Burak Atak'
+
+inputs:
+  google_credentials_file_path:
+    description: 'Google Service Account credentials in JSON format.'
+    required: true
+  files_to_create:
+    description: 'Comma-separated list of file paths to create (optional)'
+    required: false
+  drive_folder_id:
+    description: 'Google Drive folder ID where the files will be uploaded (Required for only creating files)'
+    required: false
+  files_to_update:
+    description: 'Comma-separated list of file paths to update (optional)'
+    required: false
+  file_ids_to_update:
+    description: 'Comma-separated list of file IDs for existing files to update (Required for only updating files)'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+outputs:
+  uploaded_files_to_drive:
+    description: 'Uploaded files to Google Drive'
+
+branding:
+  icon: 'upload'
+  color: 'blue'
