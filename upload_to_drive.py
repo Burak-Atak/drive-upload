@@ -95,6 +95,7 @@ if __name__ == "__main__":
     assert len(files_to_update) == len(file_ids_to_update), "The number of files to update and their IDs must match"
     if files_to_create:
         assert drive_folder_id, "A folder ID is required to create files"
+    print(os.listdir())
 
     uploader = DriveUploader(google_credentials_file_path)
     uploaded_files = uploader.upload_files(files_to_create, drive_folder_id, files_to_update, file_ids_to_update)
